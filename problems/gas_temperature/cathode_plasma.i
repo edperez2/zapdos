@@ -93,7 +93,7 @@ dom1Scale=1.0
 [Outputs]
   # perf_graph = true
   #print_densityear_residuals = false
-  [out_01]
+  [out_joule-heating_flux-BC]
     type = Exodus
   [../]
 []
@@ -368,12 +368,25 @@ dom1Scale=1.0
     value = 300
   []
 
-  [Tgas_left]
-    type = DirichletBC
-    variable = Tg
-    boundary = 'plasma_left'
-    value = 350
-  []
+#  [Tgas_left]
+#    type = DirichletBC
+#    variable = Tg
+#    boundary = 'plasma_left'
+#    value = 350
+#  []
+
+[ion_energy_flux]
+   type = IonHeatingBC
+   variable = Tg
+   boundary ='plasma_left'
+   r = 0
+   potential = potential
+   em = em
+   mean_en = mean_en
+   ip = 'Arp Ar2p'
+   position_units = ${dom0Scale}
+   ionization_energy = 15.76
+[]
 
   [Arex_physical_diffusion]
     type = HagelaarIonDiffusionBC
