@@ -106,8 +106,9 @@ IonHeatingBC::computeQpResidual()
                       _r_units * _normals[_qp]);
   }
 
-  _energy_flux = _ion_flux * (_ionization_energy * _e[_qp] * 6.022E23
+  _energy_flux = (-1) * _ion_flux * (_ionization_energy * _e[_qp] * 6.022E23
 			      + 2/3 * std::exp(_mean_en[_qp] - _em[_qp]) * _e[_qp]
 		 	      + _e[_qp] * -1000 * _potential[_qp]);
-  return _test[_i][_qp] * _r_units * _energy_flux; // new change
+  std::cout << MetaPhysicL::raw_value(_energy_flux) << std::endl;
+  return _test[_i][_qp] * _r_units * _energy_flux;
 }

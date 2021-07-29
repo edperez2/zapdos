@@ -93,7 +93,7 @@ dom1Scale=1.0
 [Outputs]
   # perf_graph = true
   #print_densityear_residuals = false
-  [out_joule-heating_flux-BC]
+  [out_ion-heating_28July21]
     type = Exodus
   [../]
 []
@@ -175,14 +175,14 @@ dom1Scale=1.0
     block = '0 1'
   []
 
-  [GasJouleHeating]
-    type = JouleHeatingIons
-    variable = Tg
-    ions = 'Arp Ar2p'
-    potential = potential
-    position_units = ${dom0Scale}
-    block = 0
-  []
+#  [GasJouleHeating]
+#    type = JouleHeatingIons
+#    variable = Tg
+#    ions = 'Arp Ar2p'
+#    potential = potential
+#    position_units = ${dom0Scale}
+#    block = 0
+#  []
 []
 
 [AuxVariables]

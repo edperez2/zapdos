@@ -96,7 +96,7 @@ JouleHeatingIons::computeQpResidual()
                   (*_diff[i])[_qp] * (*_grad_ion[i])[_qp] * _r_units) * std::exp((*_ion[i])[_qp]);
   }
   // return _test[_i][_qp] * -_grad_potential[_qp] * _r_units * _voltage_scaling * _ion_flux;
-  return -_temp * _ion_flux;
+  return -_temp * _ion_flux * 1.602e-19 * 6.022e23;
 
   /*
   return _test[_i][_qp] * -_grad_potential[_qp] * _r_units * _voltage_scaling * std::exp(_em[_qp]) *
